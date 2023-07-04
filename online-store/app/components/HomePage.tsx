@@ -1,9 +1,28 @@
+"use client"
+
 import React from 'react'
+import { useQuery } from '@tanstack/react-query'
+import Product from '@/app/components/Product'
 
 const HomePage = () => {
+    const fetchProducts = async () => {
+        const res = await fetch('https://fakestoreapi.com/products')
+
+        return res.json()
+    }
+    const { data, status } = useQuery(["products"], fetchProducts);
+    console.log("🚀 ~ file: HomePage.tsx:6 ~ fetchData ~ res:", data)
     return (
-        <div>
-            home
+        <div className="App bg-slate-100 mx-auto">
+            {status === "error" && <p>Error fetching data</p>}
+            {status === "loading" && <p>Fetching data...</p>}
+            {status === "success" && (
+                <div className='grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-2'>
+                    {data.map((item:any) => (
+                        <Product key={item.id} {...item}/>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
