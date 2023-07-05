@@ -12,11 +12,11 @@ const HomePage = () => {
     const { data, status } = useQuery(["products"], fetchProducts);
     console.log("🚀 ~ file: HomePage.tsx:6 ~ fetchData ~ res:", data)
     return (
-        <div className="App bg-slate-100 mx-auto">
+        <div className="App bg-gray-50 mx-auto">
             {status === "error" && <p>Error fetching data</p>}
             {status === "loading" && <p>Fetching data...</p>}
             {status === "success" && (
-                <div className='grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-2'>
+                <div className='grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-2 p-4 gap-x'>
                     {data.map((item:any) => (
                         <Product key={item.id} {...item}/>
                     ))}
