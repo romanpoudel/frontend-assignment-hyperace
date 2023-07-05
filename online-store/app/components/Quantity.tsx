@@ -1,4 +1,3 @@
-import PropType from "prop-types"
 
 function Quantity({ amount, handleDecrement, handleIncrement }:any) {
 console.log(amount)
@@ -9,11 +8,6 @@ console.log(amount)
             <div className="bg-gray-200 w-6 text-center rounded-xl"><button onClick={handleIncrement}>+</button></div>
         </div>
     )
-}
-Quantity.propTypes = {
-    amount: PropType.number,
-    handleDecrement: PropType.func,
-    handleIncrement: PropType.func
 }
 
 export default Quantity

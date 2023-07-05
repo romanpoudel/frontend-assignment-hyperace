@@ -7,7 +7,13 @@ import Quantity from "./Quantity";
 import { useState } from "react";
 import Image from "next/image";
 
-function CartItem({ id, image, price }:any) {
+type propData={
+    id:number
+    image:string
+    price:number
+}
+
+function CartItem({ id, image, price }:propData) {
     const dispatch = useDispatch();
     const handleDelete = (id: any) => {
         dispatch(removeFromCart(id))
@@ -22,11 +28,11 @@ function CartItem({ id, image, price }:any) {
 
     return (
         <div className="w-full">
-            <div className="flex justify-between items-center border-solid border-x-2 border-b-2 border-gray-900 p-2 h-14">
+            <div className="flex justify-between items-center border-solid border-x-2 border-b-2 border-blue-600 p-2 h-14">
                 <div ><Image className="object-contain h-12 w-8" src={image} alt="" width={32} height={48}/></div>
-                <div className=" w-32 pl-4" ><Quantity amount={amount} handleDecrement={handleDecrement} handleIncrement={handleIncrement} /></div>
-                <p className=" w-32 pl-2">{(amount*price).toFixed(2)}</p>
-                <button title="button" onClick={() => { handleDelete(id) }}><MdDeleteOutline color="error" /></button>
+                <div className="w-28 pl-4" ><Quantity amount={amount} handleDecrement={handleDecrement} handleIncrement={handleIncrement} /></div>
+                <p className="w-28 pl-4 font-bold">{(amount*price).toFixed(2)}</p>
+                <button className="w-10" title="button" onClick={() => { handleDelete(id) }}><MdDeleteOutline color="red" size="24px" /></button>
             </div>
         </div>
     )

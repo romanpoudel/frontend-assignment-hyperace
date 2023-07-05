@@ -12,7 +12,7 @@ const HomePage = () => {
     const { data, status } = useQuery(["products"], fetchProducts);
     console.log("🚀 ~ file: HomePage.tsx:6 ~ fetchData ~ res:", data)
     return (
-        <div className="App bg-gray-50 mx-auto">
+        <div className="App bg-white mx-auto">
             {status === "error" && <p>Error fetching data</p>}
             {status === "loading" && <p>Fetching data...</p>}
             {status === "success" && (

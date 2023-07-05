@@ -37,21 +37,21 @@ const SingleProduct = ({ params }: any) => {
         dispatch(action); // Dispatch the action
     };
     return (
-        <div className='flex  h-screen max-w-4xl  items-center mx-auto bg-gray-50'>
-            <div className='relative w-1/2 flex justify-center h-96 mr-6 bg-white'>
-                <Image src={image} alt="item" fill style={{ objectFit: 'contain' }} />
+        <div className='relative -top-16  flex  h-screen   items-center max-w-4xl mx-auto bg-white'>
+            <div className='relative w-1/2 flex justify-center h-96 mr-6 border-2 ml-6'>
+                <Image src={image} alt="item" fill style={{ objectFit: 'contain' }}  className='p-4'/>
             </div>
-            <div className='w-1/2  pr-12'>
+            <div className='w-1/2  pr-12 h-96'>
                 <div >
-                    <p className='font-bold text-4xl text-gray-900'>{title}</p>
+                    <p className='font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900'>{title}</p>
                     <Star rating={rating} />
-                    <p className='font-bold text-red-500 my-6'>Rs. {price}</p>
-                    <p className='mb-6 text-justify'>{description ? description.charAt(0).toUpperCase() + description.slice(1) : ''}</p>
-                    <p className='font-serif text-lg font-normal text-gray-900'>Category: {category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}</p>
+                    <p className='font-bold text-blue-500 my-6'>Rs. {price}</p>
+                    <p className='mb-6 text-justify text-xs sm:text-sm md:text-base lg:text-lg h-24 sm:h-full overflow-hidden sm:overflow-visible'>{description ? description.charAt(0).toUpperCase() + description.slice(1) : ''}</p>
+                    <p className='font-serif text-base sm:text-lg font-normal text-blue-600'><span className='font-semibold font-sams'>Category:</span> {category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}</p>
 
                 </div>
                 <div className='mt-6 '>
-                    <button onClick={handleAddToCart} className='border bg-red-500 p-2 rounded-full'><p className='uppercase font-bold text-white'>Add to cart</p></button>
+                    <button onClick={handleAddToCart} className='border bg-blue-500 p-2 rounded-full hover:shadow-lg hover:bg-blue-600'><p className='uppercase sm:font-semibold text-sm sm:text-base text-white'>Add to cart</p></button>
                 </div>
             </div>
         </div>

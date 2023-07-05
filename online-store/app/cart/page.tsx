@@ -9,7 +9,7 @@ function Cart() {
     return (
         <div className="flex flex-col items-center mt-10 max-w-4xl mx-auto">
             <h2 className="font-bold mb-3 text-lg">Cart</h2>
-            <div className="flex justify-between uppercase w-full bg-gray-900 text-gray-100 p-2">
+            <div className="flex justify-between uppercase w-full bg-white text-blue-500 font-semibold p-2 border-2 border-blue-600">
                 <p>Item</p>
                 <p>Quantity</p>
                 <p>Price</p>
