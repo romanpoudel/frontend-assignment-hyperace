@@ -7,7 +7,6 @@ import Product from '@/app/components/Product'
 const HomePage = () => {
     const fetchProducts = async () => {
         const res = await fetch('https://fakestoreapi.com/products')
-
         return res.json()
     }
     const { data, status } = useQuery(["products"], fetchProducts);

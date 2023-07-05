@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import HomePage from './components/HomePage'
 import Search from './components/Search'
-import ProductDetails from './components/ProductDetails'
 import Navbar from './components/Navbar'
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
       <Navbar />
       <HomePage />
       <Search />
-      <ProductDetails />
     </main>
   )
 }
