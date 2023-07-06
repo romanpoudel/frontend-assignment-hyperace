@@ -1,4 +1,11 @@
 "use client"
+/**
+ * The SingleProduct component is a React component that displays information about a single product
+ * and allows the user to add it to their cart.
+ * @param {any}  - The above code is a React component called SingleProduct. It receives a parameter
+ * called "params" which is an object containing the id of the product.
+ * @returns The SingleProduct component is being returned.
+ */
 
 import Star from '@/app/components/Star'
 import React from 'react'

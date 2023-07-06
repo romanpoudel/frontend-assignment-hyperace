@@ -1,4 +1,7 @@
 "use client"
+/* This is a TypeScript React component called "Search". It is a search input
+component that fetches products from an API and displays a list of search results based on the
+user's input. */
 
 import React, { useState, useRef, useEffect } from 'react'
 import SearchList from '@/app/components/SearchList'

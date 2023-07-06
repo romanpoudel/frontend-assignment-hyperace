@@ -1,5 +1,9 @@
 "use client"
 
+/**
+ * This is a TypeScript React component that fetches and displays a list of products from an API.
+ * @returns The HomePage component is being returned.
+ */
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import Product from '@/app/components/Product'

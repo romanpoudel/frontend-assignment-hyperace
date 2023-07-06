@@ -1,5 +1,10 @@
 "use client"
 
+/**
+ * The above code is a TypeScript React component that represents a navbar with a logo, search bar, and
+ * shopping cart icon.
+ * @returns The Navbar component is being returned.
+ */
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { FaShoppingCart } from 'react-icons/fa'

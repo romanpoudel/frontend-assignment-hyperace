@@ -1,5 +1,12 @@
 "use client"
 
+/**
+ * This is a TypeScript React component for rendering a single item in a shopping cart.
+ * @property {number} id - The unique identifier for the cart item.
+ * @property {string} image - The `image` property is a string that represents the URL or path to the
+ * image of the item in the cart.
+ * @property {number} price - The `price` property represents the price of the item in the cart.
+ */
 import { useDispatch } from "react-redux"
 import { removeFromCart } from "@/app/redux-toolkit/features/cart/cartSlice"
 import {MdDeleteOutline} from 'react-icons/md';

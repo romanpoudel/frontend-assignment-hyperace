@@ -1,3 +1,10 @@
+/**
+ * The Star component is a React component that displays a star rating based on the given rating prop.
+ * @param {any}  - The `Star` component takes a `rating` prop, which is an object with two properties:
+ * `rate` and `count`.
+ * @returns The Star component is returning a div element containing an array of span elements
+ * representing star ratings, along with a paragraph element displaying the count of customer reviews.
+ */
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
 
