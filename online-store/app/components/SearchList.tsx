@@ -2,7 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const SearchList = (props: any) => {
+interface DataProps{
+    id:number
+    title:string 
+    image:string 
+    category:string
+}
+
+const SearchList = (props: DataProps) => {
     const { id, title, image, category } = props
     return (
         <Link href={`/productDetail/${id}`}>

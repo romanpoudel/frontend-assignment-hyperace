@@ -8,6 +8,13 @@ import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import Product from '@/app/components/Product'
 
+interface CartProduct {
+    id: number;
+    image: string;
+    title: string;
+    description: string;
+}
+
 const HomePage = () => {
     const fetchProducts = async () => {
         const res = await fetch('https://fakestoreapi.com/products')
@@ -21,8 +28,8 @@ const HomePage = () => {
             {status === "loading" && <p>Fetching data...</p>}
             {status === "success" && (
                 <div className='grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-2 p-4 gap-x'>
-                    {data.map((item:any) => (
-                        <Product key={item.id} {...item}/>
+                    {data.map((item: CartProduct) => (
+                        <Product key={item.id} {...item} />
                     ))}
                 </div>
             )}

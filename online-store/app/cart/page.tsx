@@ -3,6 +3,13 @@
 import { useSelector } from "react-redux"
 import CartItem from "../components/CartItem";
 import type { RootState } from "../redux-toolkit/store";
+
+interface CartProduct {
+    id: number;
+    image: string;
+    price: number;
+}
+
 function Cart() {
     const data = useSelector((state: RootState) => state.cart.cartProducts);
     console.log(data)
@@ -15,7 +22,7 @@ function Cart() {
                 <p>Price</p>
                 <p>Remove</p>
             </div>
-            {data.length===0?<h1 className="font-bold mt-4">Please add to cart</h1>:data.map((elem:any) => {
+            {data.length === 0 ? <h1 className="font-bold mt-4">Please add to cart</h1> : data.map((elem: CartProduct) => {
                 return <CartItem key={elem.id} {...elem} />
             })}
         </div>

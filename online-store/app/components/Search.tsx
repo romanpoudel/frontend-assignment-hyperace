@@ -7,7 +7,27 @@ import React, { useState, useRef, useEffect } from 'react'
 import SearchList from '@/app/components/SearchList'
 import { useQuery } from '@tanstack/react-query'
 
-const Search = ({ show }: any) => {
+
+interface SearchProps {
+    show: string;
+}
+
+interface Data {
+
+    id: number
+    title: string
+    price: number
+    description: string
+    category: string
+    image: string
+    rating: {
+        rate: number
+        count: number
+    }
+
+}
+
+const Search = ({ show }: SearchProps) => {
     const [search, setSearch] = useState("")
     console.log("🚀 ~ file: Search.tsx:5 ~ Search ~ search:", search)
     const fetchProducts = async () => {
@@ -23,8 +43,8 @@ const Search = ({ show }: any) => {
         setShowList(true)
     }
     useEffect(() => {
-        const handleoutsideClick = (event: any) => {
-            if (myRef.current && !myRef.current.contains(event.target) && !event.target.tagName.toLowerCase().match(/input|textarea/)) {
+        const handleoutsideClick = (event: MouseEvent) => {
+            if (myRef.current && !myRef.current.contains(event.target as Node) && !(event.target as HTMLElement).tagName.toLowerCase().match(/input|textarea/)) {
                 setShowList(false);
             }
         }
@@ -46,11 +66,11 @@ const Search = ({ show }: any) => {
                 />
             </div>
             <div className='absolute w-full' ref={myRef}>
-                {showList && !isLoading && search !== "" && data.slice(1, 6).filter((item: any) => {
+                {showList && !isLoading && search !== "" && data.slice(1, 6).filter((item: Data) => {
                     if (item.title.toLowerCase().includes(search.toLowerCase())) {
                         return item;
                     }
-                }).map((item: any) => (
+                }).map((item: Data) => (
                     <SearchList key={item.id} {...item} />
                 ))}
             </div>

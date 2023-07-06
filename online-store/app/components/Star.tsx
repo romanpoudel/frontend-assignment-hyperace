@@ -7,8 +7,14 @@
  */
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
+interface RateProps {
+    rating: {
+        rate: number
+        count: number
+    }
+}
 
-function Star({ rating }: any) {
+function Star({ rating }: RateProps) {
     if (typeof rating === 'undefined') {
         return <p>Loading...</p>; // or any other loading indicator/message
     }

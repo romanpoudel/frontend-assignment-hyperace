@@ -14,23 +14,29 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux"
-import {addToCartReducer} from '@/app/redux-toolkit/features/cart/cartSlice'
+import { addToCartReducer } from '@/app/redux-toolkit/features/cart/cartSlice'
 
-const SingleProduct = ({ params }: any) => {
+interface SingleProductProps {
+    params: {
+        id: number;
+    };
+}
+
+const SingleProduct = ({ params }: SingleProductProps) => {
     const { id } = params
     console.log("🚀 ~ file: page.tsx:9 ~ SingleProduct ~ id:", id)
     const dispatch = useDispatch();
-    const fetchSingleProduct = async (id: any) => {
+    const fetchSingleProduct = async (id: number) => {
         const res = await fetch(`https://fakestoreapi.com/products/${id}`)
         return res.json()
     }
-    const { data, isLoading } = useQuery(["singleProduct", id], () => fetchSingleProduct(id));
+    const { data, isLoading } = useQuery<any, Error>(["singleProduct", id], () => fetchSingleProduct(id));
     console.log("🚀 ~ file: page.tsx:13 ~ SingleProduct ~ data:", data)
 
     if (isLoading) {
         return <p className='text-center font-semibold'>Loading...</p>
     }
-    const {id:alias, image, title, rating, price, description, category } = data;
+    const { id: alias, image, title, rating, price, description, category } = data;
 
     const handleAddToCart = () => {
         const payload = {
@@ -46,7 +52,7 @@ const SingleProduct = ({ params }: any) => {
     return (
         <div className='relative -top-16  flex  h-screen   items-center max-w-4xl mx-auto bg-white'>
             <div className='relative w-1/2 flex justify-center h-96 mr-6 border-2 ml-6'>
-                <Image src={image} alt="item" fill style={{ objectFit: 'contain' }}  className='p-4'/>
+                <Image src={image} alt="item" fill style={{ objectFit: 'contain' }} className='p-4' />
             </div>
             <div className='w-1/2  pr-12 h-96'>
                 <div >
