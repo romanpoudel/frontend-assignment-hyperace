@@ -1,12 +1,10 @@
 import Image from 'next/image'
 import HomePage from './components/HomePage'
-import Search from './components/Search'
 
 export default function Home() {
   return (
-    <main className="max-w-4xl mx-auto bg-gray-50">
+    <main className="max-w-xs sm:max-w-xl md:max-w-4xl mx-auto bg-gray-50">
       <HomePage />
-      <Search />
     </main>
   )
 }
