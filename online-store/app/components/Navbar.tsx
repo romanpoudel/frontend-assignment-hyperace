@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className='flex items-center justify-between h-16 bg-blue-600 px-4 max-w-4xl mx-auto shadow-md top-0 sticky z-50'>
             <div className='font-bold text-2xl text-gray-50 font-serif tracking-wider'><Link href="/">OnlineStore</Link></div>
             <div className='sm:hidden mx-2' onClick={handleShow}>{icon && <FaSearch color='white' size="20px" />}</div>
-            <div className='absolute right-28 sm:left-1/2 flex justify-center mt-28 sm:mt-0'><Search show={show} /></div>
+            <div className='absolute left-1/2 -translate-x-1/2 sm:left-1/2 flex justify-center mt-28 sm:mt-0'><Search show={show} /></div>
 
             <div className='relative m-2'>
                 <div>
