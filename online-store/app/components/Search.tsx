@@ -10,6 +10,8 @@ import { useQuery } from '@tanstack/react-query'
 
 interface SearchProps {
     show: string;
+    mobileView:boolean;
+    handleShowMob:()=>void;
 }
 
 interface Data {
@@ -27,7 +29,7 @@ interface Data {
 
 }
 
-const Search = ({ show }: SearchProps) => {
+const Search = ({ show,mobileView,handleShowMob }: SearchProps) => {
     const [search, setSearch] = useState("")
     console.log("🚀 ~ file: Search.tsx:5 ~ Search ~ search:", search)
     const fetchProducts = async () => {
@@ -46,6 +48,9 @@ const Search = ({ show }: SearchProps) => {
         const handleoutsideClick = (event: MouseEvent) => {
             if (myRef.current && !myRef.current.contains(event.target as Node) && !(event.target as HTMLElement).tagName.toLowerCase().match(/input|textarea/)) {
                 setShowList(false);
+                if(mobileView){
+                    handleShowMob()
+                }
             }
         }
 
@@ -53,7 +58,7 @@ const Search = ({ show }: SearchProps) => {
         return () => {
             document.removeEventListener("click", handleoutsideClick)
         }
-    }, [])
+    })
     return (
         <div className={`${show} sm:block relative`}>
             <div className="">
