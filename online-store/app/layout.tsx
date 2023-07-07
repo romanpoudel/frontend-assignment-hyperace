@@ -2,6 +2,7 @@ import { ReactQueryProvider } from './ReactQueryProvider'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { ReactProvider } from './redux-toolkit/provider'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <body className={`${inter.className} bg-gray-100`}>
           <ReactProvider>
             {children}
+            <ReactQueryDevtools initialIsOpen={false} />
           </ReactProvider>
         </body>
       </html>
